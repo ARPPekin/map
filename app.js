@@ -65,17 +65,27 @@ const i18n = {
 };
 
 function detectLang() {
-  const saved = localStorage.getItem('site_lang');
-  if (saved && SUPPORTED_LANGS.includes(saved)) return saved;
-  const raw = (navigator.language || navigator.userLanguage || DEFAULT_LANG).toLowerCase();
+  try {
+    const saved = localStorage.getItem('site_lang');
+    if (saved && SUPPORTED_LANGS.includes(saved)) return saved;
+  } catch (e) {}
+
+  const navLangs = Array.isArray(navigator.languages) ? navigator.languages : [navigator.language || navigator.userLanguage || DEFAULT_LANG];
+  const raw = String(navLangs[0] || DEFAULT_LANG).toLowerCase();
   if (raw.startsWith('pl')) return 'pl';
   if (raw.startsWith('zh')) return 'zh';
   return 'en';
 }
 
+function persistLang(lang) {
+  try {
+    localStorage.setItem('site_lang', lang);
+  } catch (e) {}
+}
+
 function setLang(lang) {
   const finalLang = SUPPORTED_LANGS.includes(lang) ? lang : DEFAULT_LANG;
-  localStorage.setItem('site_lang', finalLang);
+  persistLang(finalLang);
   document.documentElement.lang = finalLang;
   applyTranslations(finalLang);
 }
@@ -97,18 +107,27 @@ function applyTranslations(lang) {
     el.alt = t(lang, el.dataset.i18nAlt);
   });
 
-  document.title = document.body.dataset-titleKey ? t(lang, document.body.dataset.titleKey) : 'Event';
+  document.title = document.body.dataset.titleKey ? t(lang, document.body.dataset.titleKey) : 'Event';
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
+    btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const lang = detectLang();
-  setLang(lang);
+function initLang() {
+  setLang(detectLang());
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  document.addEventListener('click', (event) => {
+    const btn = event.target.closest('.lang-btn');
+    if (!btn) return;
+    event.preventDefault();
+    setLang(btn.dataset.lang);
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLang);
+} else {
+  initLang();
+}
