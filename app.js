@@ -25,7 +25,7 @@ const i18n = {
   en: {
     siteMark: 'Event',
     homeTitle: 'Welcome',
-    homeSubtitle: 'Choose a section to see the most important information.',
+    homeSubtitle: 'Choose to see important information.',
     program: 'Program',
     artists: 'Artists',
     attractions: 'Attractions',
