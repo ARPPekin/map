@@ -23,7 +23,7 @@ const i18n = {
     imageAltFood: 'Mapa jedzenia i picia'
   },
   en: {
-    siteMark: 'National Day Reception <br>commemoration the 235th anniversary of adopting The Constitution of 3 May 1791',
+    siteMark: 'National Day Reception <br> commemoration the 235th anniversary of adopting The Constitution of 3 May 1791',
     homeTitle: 'Welcome',
     homeSubtitle: 'Choose to see important information.',
     program: 'Program',
@@ -43,7 +43,7 @@ const i18n = {
     imageAltFood: 'Food and drinks map'
   },
   zh: {
-    siteMark: '国庆日招待会<br>以纪念1791年5月3日宪法颁布235周年',
+    siteMark: '国庆日招待会 <br> 以纪念1791年5月3日宪法颁布235周年',
     homeTitle: '欢迎',
     homeSubtitle: '请选择一个栏目查看主要信息。',
     program: '节目安排',
