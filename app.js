@@ -3,7 +3,7 @@ const DEFAULT_LANG = 'en';
 
 const i18n = {
   pl: {
-    siteMark: 'Święto Narodowe - 234. rocznica uchwalenia Konstytucji 3 Maja',
+    siteMark: 'Święto Narodowe - 235. rocznica uchwalenia Konstytucji 3 Maja',
     homeTitle: 'Witaj',
     homeSubtitle: 'Wybierz sekcję, aby zobaczyć najważniejsze informacje.',
     program: 'Program',
