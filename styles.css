@@ -55,6 +55,7 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 14px;
+  text-align: center;
 }
 
 h1 {
