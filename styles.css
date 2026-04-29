@@ -158,6 +158,7 @@ h1 {
 
 .text-block p {
   margin: 0 0 12px;
+  text-align: justify;
 }
 
 .media-card {
