@@ -46,7 +46,7 @@ const i18n = {
     siteMark: '国庆日招待会 以纪念1791年5月3日宪法颁布235周年',
     homeTitle: '欢迎',
     homeSubtitle: '请选择一个栏目查看主要信息。',
-    program: '节目安排',
+    program: '五三宪法日',
     artists: '艺术家',
     attractions: '活动区域',
     foodanddrinks: '餐饮',
